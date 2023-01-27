@@ -1,12 +1,12 @@
 {
-    "name": "zero-signal-webpack",
+    "name": "visualizer",
     "version": "1.0.1",
     "description": "Nothing serious",
     "author": "Nar der Levonian",
     "license": "MIT",
     "main": "main.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
         "js",
