@@ -1,0 +1,40 @@
+@import url('./common.less');
+
+body
+{
+    margin: 0;
+    padding: 0;
+
+    transition: @item-transition;
+
+    background-color: #c0194d;
+}
+
+#animationArea
+{
+    width: @full-size;
+    height: @half-size;
+
+    mix-blend-mode: color;
+    .layout-setting;
+}
+
+#buttonArea
+{
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: @layout-display;
+    clear: both;
+
+    width: @full-size;
+    padding-top: @button-margin;
+    padding-bottom: @button-margin;
+
+    text-align: @text-alignment;
+
+    background: @foreground;
+
+    .layout-setting;
+}

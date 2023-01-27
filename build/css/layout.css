@@ -1,0 +1,1 @@
+#animationArea,#buttonArea,.layout-setting{position:fixed;display:flex;justify-content:center}body{margin:0;padding:0;transition:all 1s ease;background-color:#c0194d}#animationArea,#buttonArea{width:100%}#animationArea{height:62%;mix-blend-mode:color}#buttonArea{right:0;bottom:0;left:0;clear:both;padding-top:16px;padding-bottom:16px;text-align:center;background:#000}

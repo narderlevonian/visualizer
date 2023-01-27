@@ -1,0 +1,49 @@
+@import url('./common.less');
+
+button
+{
+    font-family: @font-family;
+    font-size: @font-size;
+    font-weight: @font-weight;
+
+    display: @button-display;
+
+    width: @button-width;
+    height: @button-height;
+    margin: @button-margin;
+    padding: @button-padding;
+
+    transition: @button-transition;
+    vertical-align: @element-alignment;
+    text-transform: @text-transform;
+
+    color: @foreground;
+    border: 0;
+    border-radius: @radius;
+    background-color: @background;
+}
+
+button:hover:enabled
+{
+    width: @button-width-hover;
+    height: @button-height-hover;
+    margin: @button-margin-hover;
+
+    cursor: @button-cursor;
+}
+
+button:active:enabled
+{
+    width: @button-width-active;
+    height: @button-height-active;
+    margin: @button-margin-active;
+
+    cursor: @button-cursor;
+
+    background-color: @button-background-active;
+}
+
+button:disabled
+{
+    opacity: @disabled;
+}
