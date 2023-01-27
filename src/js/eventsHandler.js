@@ -29,7 +29,7 @@ class EventsHandler {
 
     onCreateClickHandler(event) {
         switch (event.target.id) {
-            case 'runAnimation':        /// Вынести в контстанты и kjkjkjk-hjkjkjk <= jkjkjJkkkkkjJJJkkkk
+            case 'runAnimation':
                 this.animationInspector.start();
                 markup.switchEnabledStateFor([
                     'runAnimation',
@@ -38,25 +38,32 @@ class EventsHandler {
                     'resetAll'
                 ]);
                 break;
+
             case 'refreshShapes':
                 shape.refreshAll(option.animationShapeQuery);
                 break;
+
             case 'duplicateShapes':
                 shape.changeQt(option.animationAreaQuery, option.animationShapeQuery, true);
                 break;
+
             case 'cleanHalf':
                 shape.changeQt(option.animationAreaQuery, option.animationShapeQuery, false);
                 break;
+
             case 'changeBackground':
                 markup.fillBackground(option.rootElement);
                 break;
+
             case 'animateBackground':
                 this.enableBackgroundAnimation = true;
                 markup.switchEnabledStateFor(['changeBackground']);
                 break;
+
             case 'changeMixingMode':
                 markup.shiftMixingMode(option.animationAreaQuery, this.blendingModeSwitcher.next());
                 break;
+
             case 'resetAll':
                 this.animationInspector.reset();
                 markup.switchEnabledStateFor([
@@ -68,7 +75,6 @@ class EventsHandler {
         }
     }
 
-    // Commands.functionForRun вынести в отдельный модуль
     bindEvents() {
         document.querySelector(option.buttonAreaQuery).addEventListener('click', this.onCreateClickHandler.bind(this));
     }

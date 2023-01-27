@@ -6,7 +6,7 @@ class DataSwitch {
     }
 
     next() {
-        (this.pointer == this.length - 1) ? this.pointer = 0: this.pointer++;           // If () jkjkj else kjjkjk
+        (this.pointer == this.length - 1) ? this.pointer = 0: this.pointer++;
         return this.list[this.pointer];
     }
 

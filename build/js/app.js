@@ -56,7 +56,7 @@ class EventsHandler {
 
     onCreateClickHandler(event) {
         switch (event.target.id) {
-            case 'runAnimation':        /// Вынести в контстанты и kjkjkjk-hjkjkjk <= jkjkjJkkkkkjJJJkkkk
+            case 'runAnimation':
                 this.animationInspector.start();
                 markup.switchEnabledStateFor([
                     'runAnimation',
@@ -65,25 +65,32 @@ class EventsHandler {
                     'resetAll'
                 ]);
                 break;
+
             case 'refreshShapes':
                 shape.refreshAll(option.animationShapeQuery);
                 break;
+
             case 'duplicateShapes':
                 shape.changeQt(option.animationAreaQuery, option.animationShapeQuery, true);
                 break;
+
             case 'cleanHalf':
                 shape.changeQt(option.animationAreaQuery, option.animationShapeQuery, false);
                 break;
+
             case 'changeBackground':
                 markup.fillBackground(option.rootElement);
                 break;
+
             case 'animateBackground':
                 this.enableBackgroundAnimation = true;
                 markup.switchEnabledStateFor(['changeBackground']);
                 break;
+
             case 'changeMixingMode':
                 markup.shiftMixingMode(option.animationAreaQuery, this.blendingModeSwitcher.next());
                 break;
+
             case 'resetAll':
                 this.animationInspector.reset();
                 markup.switchEnabledStateFor([
@@ -95,7 +102,6 @@ class EventsHandler {
         }
     }
 
-    // Commands.functionForRun вынести в отдельный модуль
     bindEvents() {
         document.querySelector(option.buttonAreaQuery).addEventListener('click', this.onCreateClickHandler.bind(this));
     }
@@ -234,18 +240,21 @@ const shape = {
         });
     },
 
-    remove: function(parent, element) {
+    remove: function(parent) {
         document.querySelector(parent).removeChild(element);
+    },
+
+    removaAll: function(parent) {
+        document.querySelector(parent).innerHTML = "";
     },
 
     changeQt: function(parent, selector, isIncreasing) {
         let iterator = 0;
-        document.querySelectorAll(selector).forEach((element) => {
-            if (!(iterator % 2)) {
-                isIncreasing ? shape.insert(parent, element) : shape.remove(parent, element);
-            }
-            iterator++;
-        });
+        let amount = document.querySelectorAll(selector).length;
+
+        shape.removaAll(parent);
+        isIncreasing ? shape.insertMore(parent, amount * 2) : shape.insertMore(parent, amount / 2);;
+
     },
 
 };
@@ -253,16 +262,15 @@ const shape = {
 module.exports = shape;
 
 },{"../option.config.js":10,"./randomizer.js":5,"./tool.js":7}],7:[function(require,module,exports){
-const tool =  {
-    repeat: function(times, callback) {
-        for (let i = 0; i < times; i++) {
-            callback.call();
-        }
-    }
+const tool = {
+	repeat: function (times, callback) {
+		for (let i = 0; i < times; i++) {
+			callback.call();
+		}
+	}
 };
 
 module.exports = tool;
-
 },{}],8:[function(require,module,exports){
 class AnimationInspector {
     constructor(callback, interval) {
@@ -295,7 +303,7 @@ class DataSwitch {
     }
 
     next() {
-        (this.pointer == this.length - 1) ? this.pointer = 0: this.pointer++;           // If () jkjkj else kjjkjk
+        (this.pointer == this.length - 1) ? this.pointer = 0: this.pointer++;
         return this.list[this.pointer];
     }
 

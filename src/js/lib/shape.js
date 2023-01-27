@@ -37,18 +37,21 @@ const shape = {
         });
     },
 
-    remove: function(parent, element) {
+    remove: function(parent) {
         document.querySelector(parent).removeChild(element);
+    },
+
+    removaAll: function(parent) {
+        document.querySelector(parent).innerHTML = "";
     },
 
     changeQt: function(parent, selector, isIncreasing) {
         let iterator = 0;
-        document.querySelectorAll(selector).forEach((element) => {
-            if (!(iterator % 2)) {
-                isIncreasing ? shape.insert(parent, element) : shape.remove(parent, element);
-            }
-            iterator++;
-        });
+        let amount = document.querySelectorAll(selector).length;
+
+        shape.removaAll(parent);
+        isIncreasing ? shape.insertMore(parent, amount * 2) : shape.insertMore(parent, amount / 2);;
+
     },
 
 };
